@@ -43,8 +43,12 @@ return {
   },
 
   {
-    'github/copilot.vim',
+    'zbirenbaum/copilot.lua',
     event = "InsertEnter",
+    cmd = "Copilot",
+    config = function()
+      require("copilot").setup({})
+    end,
   },
 
   {
@@ -84,6 +88,12 @@ return {
   },
 
   {
+    'stefandtw/quickfix-reflector.vim',
+    lazy = true,
+    event = "VeryLazy",
+  },
+
+  {
     "https://git.sr.ht/~swaits/zellij-nav.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -95,14 +105,4 @@ return {
     },
     opts = {},
   }
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
