@@ -2,6 +2,7 @@ require "nvchad.mappings"
 
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
+local api_map = vim.api.nvim_set_keymap
 
 -----------------------------------------
 --        JP Roy config
@@ -27,10 +28,6 @@ map('n', '<leader>gb', ':Git blame<CR>', opts)
 -- Edit .init.lua
 map('n', '<leader>v', ':e ~/.config/nvim.init.lua<CR>', opts)
 
--- Go to quickfix list if on window above
-map('n', '<C-j>', '<C-w>j', opts)
-map('n', '<C-k>', '<C-w>k', opts)
-
 -----------------------------------------
 --        Lsp
 -----------------------------------------
@@ -39,3 +36,27 @@ map('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 map('n', 'gd', vim.lsp.buf.definition, opts)
 map('n', 'gD', vim.lsp.buf.declaration, opts)
+
+
+-----------------------------------------
+--        telescope
+-----------------------------------------
+
+local actions = require('telescope.actions')
+
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      -- Insert mode mappings
+      i = {
+        -- Map Ctrl+S to send selected to quickfix list and open it
+        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      },
+      -- Normal mode mappings
+      n = {
+        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      },
+    },
+  },
+}
+
