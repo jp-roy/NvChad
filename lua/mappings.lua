@@ -19,8 +19,8 @@ map('n', '<leader>tl', ':TestLast<CR>', opts)
 
 
 -- Auto indent pasted text
-map('n', 'p', "p=`]<C-o>''", opts)
-map('n', 'P', "P=`]<C-o>''", opts)
+map('n', 'p', "p=']<CR>`]", opts)
+map('n', 'P', "P=']<CR>`]", opts)
 
 -- Git blame
 map('n', '<leader>gb', ':Git blame<CR>', opts)
@@ -41,6 +41,10 @@ map('n', 'gD', vim.lsp.buf.declaration, opts)
 -----------------------------------------
 --        telescope
 -----------------------------------------
+
+map('n', '<leader>fr', ':Telescope resume<CR>', { noremap = true, silent = true, desc = 'Resume old search' })
+map('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true, desc = 'Find files' })
+map('n', '\\', ':Telescope live_grep<CR>', { noremap = true, silent = true, desc = 'Live grep' })
 
 local actions = require('telescope.actions')
 
