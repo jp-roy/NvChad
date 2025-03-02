@@ -17,9 +17,13 @@ return {
           auto_trigger = true,      -- Automatically show suggestions
           debounce = 0,            -- Adjust debounce time for smoother experience
           keymap = {
-            accept = "<C-Space>",   -- Keybinding to accept suggestion
-            next = "<Tab>",         -- Keybinding to go to next suggestion
-            prev = "<S-Tab>",       -- Keybinding to go to previous suggestion
+            -- accept = "<C-Space>",   -- Keybinding to accept suggestion
+            -- next = "<Tab>",         -- Keybinding to go to next suggestion
+            -- prev = "<S-Tab>",       -- Keybinding to go to previous suggestion
+            -- dismiss = "<Esc>",      -- Keybinding to dismiss suggestion
+            --
+            accept = "<Tab>",       -- Keybinding to accept suggestion
+            next = "<S-Tab>",       -- Keybinding to go to next suggestion
             dismiss = "<Esc>",      -- Keybinding to dismiss suggestion
           },
         },
